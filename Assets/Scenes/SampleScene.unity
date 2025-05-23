@@ -521,6 +521,8 @@ MonoBehaviour:
   _cinemachineTargetGroup: {fileID: 335871733}
   _carSo: {fileID: 11400000, guid: 94a6e0efdb1f869488621d55fb2ddd82, type: 2}
   _levelViewPrefab: {fileID: 6292168321018924502, guid: e8b0a857039fb894b99b077f48e67158, type: 3}
+  _policeViewPrefab: {fileID: 1024447194505925639, guid: 2d804e8fd5f27ee4b85792b0ac93ef29, type: 3}
+  _policeSo: {fileID: 11400000, guid: dafbda74359134647bc9feef6834078f, type: 2}
 --- !u!4 &897541195
 Transform:
   m_ObjectHideFlags: 0

@@ -6,14 +6,14 @@ namespace _Root.Code.CarFeature
 {
     public class CarPresenter 
     {
-        private CarView _carView;
+        public CarView CarView { get; private set; }
         private CarModel _carModel;
         private IMovable _movable;
         private bool _isInCar;
 
         public CarPresenter(CarView carView, CarModel carModel, IMovable movable)
         {
-            _carView = carView;
+            CarView = carView;
             _carModel = carModel;
             _movable = movable;
             _isInCar = true;
