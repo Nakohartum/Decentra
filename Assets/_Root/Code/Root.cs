@@ -1,5 +1,7 @@
 ﻿using System;
 using _Root.Code.CarFeature;
+using _Root.Code.LevelFeature;
+using _Root.Code.PoliceFeature;
 using _Root.Code.UpdateFeature;
 using Cinemachine;
 using UnityEngine;
@@ -13,20 +15,24 @@ namespace _Root.Code
         [Header("Car references")] 
         [Tooltip("Cars scriptable objects")]
         [SerializeField] private CarSO _carSo;
-        [Tooltip("Cars spawn positions")]
-        [SerializeField] private Transform _carSpawnPoint;
+
+        [Header("Level settings")] 
+        [SerializeField] private LevelView _levelViewPrefab;
         
+        [Header("Police settings")]
+        [SerializeField] private PoliceView _policeViewPrefab;
+
+        [SerializeField] private PoliceSO _policeSo;
         
         
         private UpdateManager _updateManager;
-        private InitializeManager _initializeManager;
         
 
         private void Start()
         {
             _updateManager = new UpdateManager();
-            _initializeManager = new InitializeManager(_carSo, _updateManager, _carSpawnPoint, _cinemachineTargetGroup);
-            _initializeManager.Initialize();
+            var initializeManager = new InitializeManager(_carSo, _updateManager, _cinemachineTargetGroup, _levelViewPrefab, _policeSo);
+            initializeManager.Initialize();
         }
 
         private void Update()
