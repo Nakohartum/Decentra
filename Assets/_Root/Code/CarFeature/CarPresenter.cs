@@ -1,4 +1,6 @@
-﻿using _Root.Code.MoveFeature;
+﻿using System;
+using _Root.Code.InputFeature;
+using _Root.Code.MoveFeature;
 using _Root.Code.UpdateFeature;
 using UnityEngine;
 
@@ -29,12 +31,30 @@ namespace _Root.Code.CarFeature
             _isInCar = true;
         }
 
-        public void Move(Vector2 moveVector)
+        public void Move(TouchSide touchSide)
         {
             if (_isInCar)
             {
-                _movable.Move(moveVector);
-                _movable.Rotate(moveVector);
+                Vector2 vector;
+                switch (touchSide)
+                {
+                    case TouchSide.None:
+                        vector = new Vector2(0, 1);
+                        break;
+                    case TouchSide.Left:
+                        vector = new Vector2(-1, 1);
+                        break;
+                    case TouchSide.Right:
+                        vector = new Vector2(1, 1);
+                        break;
+                    case TouchSide.Center:
+                        vector = new Vector2(0, -1);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(touchSide), touchSide, null);
+                }
+                _movable.Move(vector);
+                _movable.Rotate(vector);
             }
         }
     }

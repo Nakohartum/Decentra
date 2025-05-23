@@ -19,6 +19,7 @@ namespace _Root.Code.MoveFeature.CarMovement
         
         public void Move(Vector3 direction)
         {
+            Debug.Log(direction.y);
             Move(direction.y);
         }
 
