@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b3904f4c21422a893c43b33bead922, type: 3}
   m_Name: Car
   m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 20
+  <Speed>k__BackingField: 50
   <Health>k__BackingField: 100
-  <Acceleration>k__BackingField: 500
+  <Acceleration>k__BackingField: 2000
   <TurnSpeed>k__BackingField: 500
   <CarPrefab>k__BackingField: {fileID: 1365419352261345928, guid: c577dadbb61e1dc42b6fdf3caa1f79a1, type: 3}
