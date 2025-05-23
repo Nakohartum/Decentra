@@ -1,6 +1,8 @@
 ﻿using System;
 using _Root.Code.CarFeature;
+using _Root.Code.InputFeature;
 using _Root.Code.LevelFeature;
+using _Root.Code.Player;
 using _Root.Code.PoliceFeature;
 using _Root.Code.UpdateFeature;
 using Cinemachine;
@@ -19,10 +21,16 @@ namespace _Root.Code
         [Header("Level settings")] 
         [SerializeField] private LevelView _levelViewPrefab;
         
+        [Header("Player settings")]
+        [SerializeField] private PlayerSO _playerSo;
+        
         [Header("Police settings")]
         [SerializeField] private PoliceView _policeViewPrefab;
 
         [SerializeField] private PoliceSO _policeSo;
+        
+        [Header("Game settings")]
+        [SerializeField] private InputView _inputView;
         
         
         private UpdateManager _updateManager;
@@ -31,7 +39,8 @@ namespace _Root.Code
         private void Start()
         {
             _updateManager = new UpdateManager();
-            var initializeManager = new InitializeManager(_carSo, _updateManager, _cinemachineTargetGroup, _levelViewPrefab, _policeSo);
+            var initializeManager = new InitializeManager(_carSo, _updateManager, _cinemachineTargetGroup, 
+                _levelViewPrefab, _policeSo, _playerSo, _inputView);
             initializeManager.Initialize();
         }
 

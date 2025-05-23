@@ -9,12 +9,20 @@ namespace _Root.Code.InputFeature
         public UnityEvent<Vector2> OnMove { get; }
         public UnityEvent<TouchSide> OnSteeringWheelRotate { get; }
         public UnityEvent<bool> OnActionButtonPressed { get; }
+        private InputView _inputView;
 
-        public InputController()
+        public InputController(InputView inputView)
         {
+            _inputView = inputView;
             OnMove = new UnityEvent<Vector2>();
             OnSteeringWheelRotate = new UnityEvent<TouchSide>();
             OnActionButtonPressed = new UnityEvent<bool>();
+            _inputView.ActionButton.onClick.AddListener(PerformAction);
+        }
+
+        private void PerformAction()
+        {
+            OnActionButtonPressed.Invoke(true);
         }
 
         public void Dispose()
@@ -27,8 +35,7 @@ namespace _Root.Code.InputFeature
         {
             var side = CalculateSide();
             OnSteeringWheelRotate.Invoke(side);
-            OnMove.Invoke(new Vector2(Input.GetAxis(InputStrings.HORIZONTAL), Input.GetAxis(InputStrings.VERTICAL)));
-            OnActionButtonPressed.Invoke(Input.GetButton(InputStrings.ACTION));
+            OnMove.Invoke(_inputView.Joystick.Direction);
         }
 
         private TouchSide CalculateSide()
@@ -50,6 +57,12 @@ namespace _Root.Code.InputFeature
             }
 
             return TouchSide.Center;
+        }
+
+        public void HidePlayerControllers()
+        {
+            _inputView.Joystick.gameObject.SetActive(false);
+            _inputView.ActionButton.gameObject.SetActive(false);
         }
     }
 

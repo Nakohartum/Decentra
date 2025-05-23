@@ -11,14 +11,15 @@ namespace _Root.Code.CarFeature
         public CarView CarView { get; private set; }
         private CarModel _carModel;
         private IMovable _movable;
-        private bool _isInCar;
+        private bool _isInCar = false;
+        private InputController _inputController;
 
-        public CarPresenter(CarView carView, CarModel carModel, IMovable movable)
+        public CarPresenter(CarView carView, CarModel carModel, IMovable movable, InputController inputController)
         {
             CarView = carView;
             _carModel = carModel;
             _movable = movable;
-            _isInCar = true;
+            _inputController = inputController;
         }
         
         public void Dispose()
@@ -29,6 +30,8 @@ namespace _Root.Code.CarFeature
         public void EnterVehicle()
         {
             _isInCar = true;
+            CarView.Rigidbody.bodyType = RigidbodyType2D.Dynamic;
+            _inputController.HidePlayerControllers();
         }
 
         public void Move(TouchSide touchSide)

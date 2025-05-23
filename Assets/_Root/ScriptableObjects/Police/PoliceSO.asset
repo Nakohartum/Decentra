@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PoliceSO
   m_EditorClassIdentifier: 
   <MaxSpeed>k__BackingField: 20
-  <Acceleration>k__BackingField: 500
+  <Acceleration>k__BackingField: 3000
   <AvoidForce>k__BackingField: 600
   <AvoidDistance>k__BackingField: 5
   <RamDistance>k__BackingField: 5
