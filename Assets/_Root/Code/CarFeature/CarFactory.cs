@@ -21,9 +21,10 @@ namespace _Root.Code.CarFeature
             var view = Object.Instantiate(carSo.CarPrefab, position, rotation);
             var model = new CarModel(carSo.Speed, carSo.Health, carSo.Acceleration, carSo.TurnSpeed);
             var movable = new PhysicsCarMovement(view.Rigidbody, model.Speed, model.Acceleration, model.TurnSpeed);
-            var presenter = new CarPresenter(view, model, movable);
+            var presenter = new CarPresenter(view, model, movable, _inputController);
             _inputController.OnSteeringWheelRotate.AddListener(presenter.Move);
             _cinemachineTargetGroup.AddMember(view.transform, 1f, 5f);
+            view.Initialize(presenter);
             return presenter;
         }
     }

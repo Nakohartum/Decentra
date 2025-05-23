@@ -7,6 +7,7 @@ namespace _Root.Code
     {
         private Rigidbody2D _rigidbody;
         private float _speed;
+        private float _acceleration = 200f;
 
         public PlayerMovement(Rigidbody2D rigidbody, float speed)
         {
@@ -16,13 +17,21 @@ namespace _Root.Code
         
         public void Move(Vector3 direction)
         {
-            _rigidbody.MovePosition(_rigidbody.position + (Vector2)direction * _speed * Time.fixedDeltaTime);
+            
+            _rigidbody.AddForce((Vector2)direction * _acceleration);
+            if (_rigidbody.velocity.magnitude > _speed)
+            {
+                _rigidbody.velocity = _rigidbody.velocity.normalized * _speed;
+            }
         }
 
         public void Rotate(Vector3 direction)
         {
-            
-            _rigidbody.MoveRotation(2);
+            if (direction.sqrMagnitude < 0.01f)
+                return;
+
+            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            _rigidbody.MoveRotation(targetAngle);
         }
     }
 }
