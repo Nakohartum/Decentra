@@ -1,5 +1,6 @@
 ﻿using _Root.Code.InputFeature;
 using _Root.Code.MoveFeature.CarMovement;
+using Cinemachine;
 using UnityEngine;
 
 namespace _Root.Code.CarFeature
@@ -7,10 +8,12 @@ namespace _Root.Code.CarFeature
     public class CarFactory
     {
         private InputController _inputController;
+        private CinemachineTargetGroup _cinemachineTargetGroup;
 
-        public CarFactory(InputController inputController)
+        public CarFactory(InputController inputController, CinemachineTargetGroup cinemachineTargetGroup)
         {
             _inputController = inputController;
+            _cinemachineTargetGroup = cinemachineTargetGroup;
         }
 
         public CarPresenter CreateCar(CarSO carSo, Vector3 position, Quaternion rotation)
@@ -20,6 +23,7 @@ namespace _Root.Code.CarFeature
             var movable = new PhysicsCarMovement(view.Rigidbody, model.Speed, model.Acceleration, model.TurnSpeed);
             var presenter = new CarPresenter(view, model, movable);
             _inputController.OnMove.AddListener(presenter.Move);
+            _cinemachineTargetGroup.AddMember(view.transform, 1f, 5f);
             return presenter;
         }
     }

@@ -1,12 +1,15 @@
 ﻿using System;
 using _Root.Code.CarFeature;
 using _Root.Code.UpdateFeature;
+using Cinemachine;
 using UnityEngine;
 
 namespace _Root.Code
 {
     public class Root : MonoBehaviour
     {
+        [Header("Cinemachine")]
+        [SerializeField] private CinemachineTargetGroup _cinemachineTargetGroup;
         [Header("Car references")] 
         [Tooltip("Cars scriptable objects")]
         [SerializeField] private CarSO _carSo;
@@ -22,7 +25,7 @@ namespace _Root.Code
         private void Start()
         {
             _updateManager = new UpdateManager();
-            _initializeManager = new InitializeManager(_carSo, _updateManager, _carSpawnPoint);
+            _initializeManager = new InitializeManager(_carSo, _updateManager, _carSpawnPoint, _cinemachineTargetGroup);
             _initializeManager.Initialize();
         }
 
