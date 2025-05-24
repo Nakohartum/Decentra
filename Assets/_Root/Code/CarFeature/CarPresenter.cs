@@ -16,6 +16,7 @@ namespace _Root.Code.CarFeature
         private bool _isInCar = false;
         private InputController _inputController;
         private Vector2 _inputVector;
+        private CarSoundPlayer _soundPlayer;
         public UnityEvent OnEnteredVehicle {get; private set;}
         public UnityEvent OnVehicleDestroyed {get; private set;}
 
@@ -25,9 +26,11 @@ namespace _Root.Code.CarFeature
             _carModel = carModel;
             _movable = movable;
             _inputController = inputController;
+            _soundPlayer = new CarSoundPlayer(CarView.AudioSource, _carModel.CarSound);
             OnEnteredVehicle = new UnityEvent();
             OnVehicleDestroyed = new UnityEvent();
             CarView.ChangeHealthBar(_carModel.MaxHealth, _carModel.Health);
+            CarView.OnSoundPlay += _soundPlayer.PlayCarSound;
         }
         
         public void Dispose()
@@ -44,6 +47,7 @@ namespace _Root.Code.CarFeature
         {
             _isInCar = true;
             CarView.Rigidbody.bodyType = RigidbodyType2D.Dynamic;
+            CarView.PlaySound();
             OnEnteredVehicle.Invoke();
         }
 
@@ -51,6 +55,14 @@ namespace _Root.Code.CarFeature
         {
             if (_isInCar)
             {
+                if (Mathf.Approximately(_inputVector.y, -1))
+                {
+                    _soundPlayer.StartDecreasingSound(CarView);
+                }
+                else if (Mathf.Approximately(_inputVector.y, 1))
+                {
+                    _soundPlayer.StartIncreasingSound(CarView);
+                }
                 _movable.Move(_inputVector);
                 KillSideVelocity();
                 _movable.Rotate(_inputVector);

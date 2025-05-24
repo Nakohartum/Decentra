@@ -4,13 +4,17 @@ using UnityEngine.UI;
 
 namespace _Root.Code.CarFeature
 {
-    public class CarView : MonoBehaviour
+    public class  CarView : MonoBehaviour
     {
         [field: SerializeField] public Rigidbody2D Rigidbody { get; private set; }
+        [field: SerializeField] public AudioSource AudioSource { get; private set; }
+        
         [SerializeField] private Image _healthBar;
         [SerializeField] private Sprite[] _carSprites;
         [SerializeField] private SpriteRenderer _spriteRenderer;
         public CarPresenter CarPresenter { get; private set; }
+        
+        public event Action OnSoundPlay = delegate { };
 
         public void SetSprite(int value)
         {
@@ -35,6 +39,11 @@ namespace _Root.Code.CarFeature
         {
             var amount = currentHealth / maxHealth;
             _healthBar.rectTransform.localScale = new Vector3(amount, 1, 1);
+        }
+
+        public void PlaySound()
+        {
+            OnSoundPlay();
         }
     }
 }
