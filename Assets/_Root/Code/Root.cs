@@ -5,6 +5,7 @@ using _Root.Code.InputFeature;
 using _Root.Code.LevelFeature;
 using _Root.Code.Player;
 using _Root.Code.PoliceFeature;
+using _Root.Code.StartMenuFeature;
 using _Root.Code.UpdateFeature;
 using Cinemachine;
 using UnityEngine;
@@ -32,7 +33,7 @@ namespace _Root.Code
         
         [Header("Game settings")]
         [SerializeField] private InputView _inputView;
-
+        [SerializeField] private StartMenuView _startMenuView;
         [SerializeField] private LoseWinView _loseWinView;
         
         
@@ -47,7 +48,7 @@ namespace _Root.Code
         {
             _updateManager = new UpdateManager();
             var initializeManager = new InitializeManager(_carSo, _updateManager, _cinemachineTargetGroup, 
-                _levelViewPrefab, _policeSo, _playerSo, _inputView, _loseWinView);
+                _levelViewPrefab, _policeSo, _playerSo, _inputView, _loseWinView, _startMenuView);
             initializeManager.Initialize();
         }
 
