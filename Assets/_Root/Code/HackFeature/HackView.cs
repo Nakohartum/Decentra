@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace _Root.Code.HackFeature
@@ -10,7 +11,7 @@ namespace _Root.Code.HackFeature
         public TextMeshProUGUI statusText;
         public RectTransform pointer;
         public List<RectTransform> successZones;
-        public Button hackButton;
+        [FormerlySerializedAs("hackButton")] public Button HackButton;
         public RectTransform circle;
         public float zoneSize;
         

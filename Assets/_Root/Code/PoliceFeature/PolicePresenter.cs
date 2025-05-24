@@ -8,13 +8,13 @@ namespace _Root.Code.PoliceFeature
 {
     public class PolicePresenter : IUpdatable
     {
-        private readonly PoliceView _policeView;
+        public PoliceView PoliceView { get; private set; }
         private readonly PoliceModel _policeModel;
         private IMovable _movable;
 
         public PolicePresenter(PoliceView policeView, PoliceModel policeModel, IMovable movable)
         {
-            _policeView = policeView;
+            PoliceView = policeView;
             _policeModel = policeModel;
             _movable = movable;
         }
@@ -22,7 +22,7 @@ namespace _Root.Code.PoliceFeature
 
         public void Dispose()
         {
-            
+            PoliceView.Rigidbody2D.velocity = Vector2.zero;
         }
 
         public void Update(float deltaTime)

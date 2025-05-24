@@ -9,6 +9,10 @@ namespace _Root.Code.CarFeature
         [field: SerializeField] public float Health { get; private set;}
         [field: SerializeField] public float Acceleration { get; private set;}
         [field: SerializeField] public float TurnSpeed { get; private set;}
+        [field: SerializeField] public float Mass { get; private set;}
+        [field: SerializeField] public float LinearDrag { get; private set;}
+        [field: SerializeField] public float AngularDrag { get; private set;}
+        [field: SerializeField] public float SideFriction { get; private set;}
         [field: SerializeField] public CarView CarPrefab { get; private set; }
     }
 }
