@@ -1,9 +1,12 @@
 ﻿using System;
 using _Root.Code.CarFeature;
+using _Root.Code.GameLoseWinFeature;
 using _Root.Code.InputFeature;
 using _Root.Code.LevelFeature;
+using _Root.Code.NavigationFeature;
 using _Root.Code.Player;
 using _Root.Code.PoliceFeature;
+using _Root.Code.StartMenuFeature;
 using _Root.Code.UpdateFeature;
 using Cinemachine;
 using UnityEngine;
@@ -31,16 +34,23 @@ namespace _Root.Code
         
         [Header("Game settings")]
         [SerializeField] private InputView _inputView;
+        [SerializeField] private StartMenuView _startMenuView;
+        [SerializeField] private LoseWinView _loseWinView;
+        [SerializeField] private NavigationView _navigationView;
         
         
         private UpdateManager _updateManager;
-        
+
+        private void Awake()
+        {
+            Application.targetFrameRate = 120;
+        }
 
         private void Start()
         {
             _updateManager = new UpdateManager();
             var initializeManager = new InitializeManager(_carSo, _updateManager, _cinemachineTargetGroup, 
-                _levelViewPrefab, _policeSo, _playerSo, _inputView);
+                _levelViewPrefab, _policeSo, _playerSo, _inputView, _loseWinView, _startMenuView, _navigationView);
             initializeManager.Initialize();
         }
 
@@ -48,6 +58,11 @@ namespace _Root.Code
         {
             var deltaTime = Time.deltaTime;
             _updateManager.Update(deltaTime);
+        }
+
+        private void FixedUpdate()
+        {
+            _updateManager.FixedUpdate();
         }
     }
 }

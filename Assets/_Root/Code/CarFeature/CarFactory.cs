@@ -19,11 +19,15 @@ namespace _Root.Code.CarFeature
         public CarPresenter CreateCar(CarSO carSo, Vector3 position, Quaternion rotation)
         {
             var view = Object.Instantiate(carSo.CarPrefab, position, rotation);
-            var model = new CarModel(carSo.Speed, carSo.Health, carSo.Acceleration, carSo.TurnSpeed);
+            view.Rigidbody.mass = carSo.Mass;
+            view.Rigidbody.drag = carSo.LinearDrag;
+            view.Rigidbody.angularDrag = carSo.AngularDrag;
+            var model = new CarModel(carSo.Speed, carSo.Health, carSo.Acceleration, carSo.TurnSpeed,
+                carSo.SideFriction);
             var movable = new PhysicsCarMovement(view.Rigidbody, model.Speed, model.Acceleration, model.TurnSpeed);
             var presenter = new CarPresenter(view, model, movable, _inputController);
-            _inputController.OnSteeringWheelRotate.AddListener(presenter.Move);
-            _cinemachineTargetGroup.AddMember(view.transform, 1f, 5f);
+            _inputController.OnSteeringWheelRotate.AddListener(presenter.GetInput);
+            _cinemachineTargetGroup.AddMember(view.transform, 1f, 10f);
             view.Initialize(presenter);
             return presenter;
         }

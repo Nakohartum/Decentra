@@ -2,22 +2,28 @@
 using _Root.Code;
 using _Root.Code.CarFeature;
 using _Root.Code.MoveFeature;
+using _Root.Code.UpdateFeature;
 using Player;
 using UnityEngine;
 
 namespace Player
 {
-    public class PlayerPresenter : IDisposable
+    public class PlayerPresenter : IFixedUpdate
     {
         private PlayerModel _playerModel;
-        private PlayerView _view;
+        public PlayerView PlayerView {get; private set;}
         private IMovable _movable;
-
-        public PlayerPresenter(PlayerModel playerModel, PlayerView view, IMovable movable)
+        private Vector2 _inputVector;
+        public PlayerPresenter(PlayerModel playerModel, PlayerView playerView, IMovable movable)
         {
             _playerModel = playerModel;
-            _view = view;
+            PlayerView = playerView;
             _movable = movable;
+        }
+
+        public void GetInputVector(Vector2 inputVector)
+        {
+            _inputVector.Set(inputVector.x, inputVector.y);
         }
 
         public void Move(Vector2 arg0)
@@ -30,7 +36,7 @@ namespace Player
         {
             if (value)
             {
-                var hit = Physics2D.RaycastAll(_view.transform.position, _view.transform.up, 1f);
+                var hit = Physics2D.RaycastAll(PlayerView.transform.position, PlayerView.transform.up, 1f);
                 
                 if (hit.Length > 0)
                 {
@@ -51,7 +57,13 @@ namespace Player
 
         public void Dispose()
         {
-            _view.gameObject.SetActive(false);
+            PlayerView.Rigidbody.velocity = Vector2.zero;
+            PlayerView.gameObject.SetActive(false);
+        }
+
+        public void FixedUpdate()
+        {
+            Move(_inputVector);
         }
     }
 }
