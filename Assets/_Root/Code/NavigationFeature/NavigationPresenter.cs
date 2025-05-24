@@ -10,10 +10,14 @@ namespace _Root.Code.NavigationFeature
         private Transform _player;
         private bool _isNavigating = false;
 
-        public NavigationPresenter(NavigationView navigationView, Transform target, Transform player)
+        public NavigationPresenter(NavigationView navigationView, Transform target)
         {
             _navigationView = navigationView;
             _target = target;
+        }
+
+        public void SetPlayer(Transform player)
+        {
             _player = player;
         }
 

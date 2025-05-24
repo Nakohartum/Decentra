@@ -88,6 +88,10 @@ namespace _Root.Code.CarFeature
 
         public void GetDamage()
         {
+            if (!_isInCar)
+            {
+                return;
+            }
             _carModel.ApplyDamage(GameSettings.DAMAGE);
             CarView.ChangeHealthBar(_carModel.MaxHealth, _carModel.Health);
             if (_carModel.Health <= 0)
