@@ -24,7 +24,7 @@ namespace _Root.Code.CarFeature
             view.Rigidbody.drag = carSo.LinearDrag;
             view.Rigidbody.angularDrag = carSo.AngularDrag;
             var model = new CarModel(carSo.Speed, carSo.Health, carSo.Acceleration, carSo.TurnSpeed,
-                carSo.SideFriction);
+                carSo.SideFriction, carSo.CarSound);
             var movable = new PhysicsCarMovement(view.Rigidbody, model.Speed, model.Acceleration, model.TurnSpeed);
             var presenter = new CarPresenter(view, model, movable, _inputController);
             _inputController.OnSteeringWheelRotate.AddListener(presenter.GetInput);

@@ -14,5 +14,6 @@ namespace _Root.Code.CarFeature
         [field: SerializeField] public float AngularDrag { get; private set;}
         [field: SerializeField] public float SideFriction { get; private set;}
         [field: SerializeField] public CarView CarPrefab { get; private set; }
+        [field: SerializeField] public AudioClip CarSound { get; private set;}
     }
 }
