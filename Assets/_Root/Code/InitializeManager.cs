@@ -1,4 +1,6 @@
-﻿using _Root.Code.CarFeature;
+﻿using System.Collections.Generic;
+using _Root.Code.CarFeature;
+using _Root.Code.GameLoseWinFeature;
 using _Root.Code.HackFeature;
 using _Root.Code.InputFeature;
 using _Root.Code.LevelFeature;
@@ -21,9 +23,11 @@ namespace _Root.Code
         private PoliceSO _policeSo;
         private PlayerSO _playerSo;
         private InputView _inputView;
+        private LoseWinView _loseWinView;
+        private List<GameObject> _listToDestroy = new List<GameObject>();
 
         public InitializeManager(CarSO carSo, UpdateManager updateManager, 
-            CinemachineTargetGroup cinemachineTargetGroup, LevelView levelPrefab, PoliceSO policeSo, PlayerSO playerSo, InputView inputView)
+            CinemachineTargetGroup cinemachineTargetGroup, LevelView levelPrefab, PoliceSO policeSo, PlayerSO playerSo, InputView inputView, LoseWinView loseWinView)
         {
             _carSo = carSo;
             _updateManager = updateManager;
@@ -32,16 +36,37 @@ namespace _Root.Code
             _policeSo = policeSo;
             _playerSo = playerSo;
             _inputView = inputView;
+            _loseWinView = loseWinView;
+            _loseWinView.TryAgainButton.onClick.AddListener(RestartGame);
+        }
+
+        public void RestartGame()
+        {
+            foreach (var o in _listToDestroy)
+            {
+                Object.Destroy(o);
+            }
+            _listToDestroy.Clear();
+            Initialize();
         }
 
         public void Initialize()
         {
+            _updateManager.SetGameStatus(GameStatus.GameInProgress);
             var inputController = new InputController(_inputView);
             inputController.HideHackControllers();
             inputController.ShowPlayerControllers();
+            _loseWinView.gameObject.SetActive(false);
             _updateManager.AddUpdatable(inputController);
             var levelFactory = new LevelFactory(_levelPrefab);
             var level = levelFactory.CreateLevel();
+            level.WinTrigger.OnWin.AddListener(() =>
+            {
+                _loseWinView.gameObject.SetActive(true);
+                _loseWinView.HideLoseScreen();
+                _loseWinView.ShowWinScreen();
+                _updateManager.SetGameStatus(GameStatus.GameEnded);
+            });
             var playerFactory = new PlayerFactory(_playerSo, level.SpawnPosition, inputController);
             var playerPresenter = playerFactory.CreatePlayer();
             _updateManager.AddFixedUpdatable(playerPresenter);
@@ -54,6 +79,14 @@ namespace _Root.Code
             {
                 var policePresenter = policeFactory.CreatePoliceUnit(carPresenter.CarView.Rigidbody);
                 _updateManager.AddUpdatable(policePresenter);
+                _listToDestroy.Add(policePresenter.PoliceView.gameObject);
+            });
+            carPresenter.OnVehicleDestroyed.AddListener(() =>
+            {
+                _loseWinView.gameObject.SetActive(true);
+                _loseWinView.HideWinScreen();
+                _loseWinView.ShowLoseScreen();
+                _updateManager.SetGameStatus(GameStatus.GameEnded);
             });
             inputController.OnActionButtonPressed.AddListener((_) =>
             {
@@ -68,6 +101,9 @@ namespace _Root.Code
                 });
                 _updateManager.AddUpdatable(hackPresenter);
             });
+            _listToDestroy.Add(playerPresenter.PlayerView.gameObject);
+            _listToDestroy.Add(carPresenter.CarView.gameObject);
+            _listToDestroy.Add(level.gameObject);
         }
     }
 }

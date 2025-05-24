@@ -79,6 +79,7 @@ namespace _Root.Code.HackFeature
         public void Dispose()
         {
             OnMiniGameFinished.RemoveAllListeners();
+            _view.HackButton.onClick.RemoveAllListeners();
         }
 
         public void Update(float deltaTime)

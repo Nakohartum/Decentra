@@ -17,6 +17,7 @@ namespace _Root.Code.CarFeature
         private InputController _inputController;
         private Vector2 _inputVector;
         public UnityEvent OnEnteredVehicle {get; private set;}
+        public UnityEvent OnVehicleDestroyed {get; private set;}
 
         public CarPresenter(CarView carView, CarModel carModel, IMovable movable, InputController inputController)
         {
@@ -25,11 +26,13 @@ namespace _Root.Code.CarFeature
             _movable = movable;
             _inputController = inputController;
             OnEnteredVehicle = new UnityEvent();
+            OnVehicleDestroyed = new UnityEvent();
+            CarView.ChangeHealthBar(_carModel.MaxHealth, _carModel.Health);
         }
         
         public void Dispose()
         {
-            
+            OnEnteredVehicle.RemoveAllListeners();
         }
 
         public void FixedUpdate()
@@ -86,9 +89,11 @@ namespace _Root.Code.CarFeature
         public void GetDamage()
         {
             _carModel.ApplyDamage(GameSettings.DAMAGE);
+            CarView.ChangeHealthBar(_carModel.MaxHealth, _carModel.Health);
             if (_carModel.Health <= 0)
             {
                 Object.Destroy(CarView.gameObject);
+                OnVehicleDestroyed.Invoke();
             }
         }
     }

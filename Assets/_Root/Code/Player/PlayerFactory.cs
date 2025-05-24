@@ -21,7 +21,7 @@ namespace Player
         public PlayerPresenter CreatePlayer()
         {
             var view = Object.Instantiate(_playerSo.PlayerViewPrefab, _playerSpawnPoint.position, _playerSpawnPoint.rotation);
-
+            view.gameObject.SetActive(true);
             var model = new PlayerModel(_playerSo.Speed);
             var playerMovement = new PlayerMovement(view.Rigidbody, model.Speed);
             var presenter = new PlayerPresenter(model, view, playerMovement);

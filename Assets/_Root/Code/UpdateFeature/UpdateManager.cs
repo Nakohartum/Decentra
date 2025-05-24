@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace _Root.Code.UpdateFeature
 {
@@ -7,6 +8,7 @@ namespace _Root.Code.UpdateFeature
     {
         private List<IUpdatable> _updatables = new List<IUpdatable>();
         private List<IFixedUpdate> _fixedUpdates = new List<IFixedUpdate>();
+        private GameStatus _gameStatus;
 
         public void AddUpdatable(IUpdatable updatable)
         {
@@ -30,6 +32,11 @@ namespace _Root.Code.UpdateFeature
         
         public void Update(float deltaTime)
         {
+            if (_gameStatus == GameStatus.GameEnded)
+            {
+                Dispose();
+                return;
+            }
             foreach (IUpdatable updatable in _updatables)
             {
                 updatable.Update(deltaTime);
@@ -52,10 +59,20 @@ namespace _Root.Code.UpdateFeature
 
         public void FixedUpdate()
         {
+            if (_gameStatus == GameStatus.GameEnded)
+            {
+                Dispose();
+                return;
+            }
             foreach (IFixedUpdate fixedUpdate in _fixedUpdates)
             {
                 fixedUpdate.FixedUpdate();
             }
+        }
+
+        public void SetGameStatus(GameStatus status)
+        {
+            _gameStatus = status;
         }
     }
 }

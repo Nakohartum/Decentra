@@ -29,6 +29,7 @@ namespace _Root.Code.InputFeature
         {
             OnActionButtonPressed.RemoveAllListeners();
             OnMove.RemoveAllListeners();
+            OnSteeringWheelRotate.RemoveAllListeners();
         }
 
         public void Update(float deltaTime)
