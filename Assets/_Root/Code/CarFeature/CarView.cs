@@ -12,5 +12,10 @@ namespace _Root.Code.CarFeature
         {
             CarPresenter = carPresenter;
         }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            CarPresenter.GetDamage();
+        }
     }
 }

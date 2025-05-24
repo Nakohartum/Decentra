@@ -26,7 +26,6 @@ namespace Player
             var playerMovement = new PlayerMovement(view.Rigidbody, model.Speed);
             var presenter = new PlayerPresenter(model, view, playerMovement);
             _inputController.OnMove.AddListener(presenter.GetInputVector);
-            _inputController.OnActionButtonPressed.AddListener(presenter.EnterCar);
             return presenter;
         }
     }

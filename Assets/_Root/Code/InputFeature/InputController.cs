@@ -64,6 +64,24 @@ namespace _Root.Code.InputFeature
             _inputView.Joystick.gameObject.SetActive(false);
             _inputView.ActionButton.gameObject.SetActive(false);
         }
+
+        public void ShowHackControllers()
+        {
+            _inputView.HackView.gameObject.SetActive(true);
+            _inputView.HackView.HackButton.gameObject.SetActive(true);
+        }
+
+        public void ShowPlayerControllers()
+        {
+            _inputView.Joystick.gameObject.SetActive(true);
+            _inputView.ActionButton.gameObject.SetActive(true);
+        }
+
+        public void HideHackControllers()
+        {
+            _inputView.HackView.gameObject.SetActive(false);
+            _inputView.HackView.HackButton.gameObject.SetActive(false);
+        }
     }
 
     public enum TouchSide

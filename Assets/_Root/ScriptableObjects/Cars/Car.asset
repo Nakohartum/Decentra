@@ -15,5 +15,5 @@ MonoBehaviour:
   <Speed>k__BackingField: 50
   <Health>k__BackingField: 100
   <Acceleration>k__BackingField: 5000
-  <TurnSpeed>k__BackingField: 3000
+  <TurnSpeed>k__BackingField: 14000
   <CarPrefab>k__BackingField: {fileID: 1365419352261345928, guid: c577dadbb61e1dc42b6fdf3caa1f79a1, type: 3}

@@ -1,4 +1,5 @@
 ﻿using _Root.Code.CarFeature;
+using _Root.Code.HackFeature;
 using _Root.Code.InputFeature;
 using _Root.Code.LevelFeature;
 using _Root.Code.Player;
@@ -36,6 +37,8 @@ namespace _Root.Code
         public void Initialize()
         {
             var inputController = new InputController(_inputView);
+            inputController.HideHackControllers();
+            inputController.ShowPlayerControllers();
             _updateManager.AddUpdatable(inputController);
             var levelFactory = new LevelFactory(_levelPrefab);
             var level = levelFactory.CreateLevel();
@@ -46,10 +49,24 @@ namespace _Root.Code
             var carPresenter = carFactory.CreateCar(_carSo, level.SpawnPosition.position, level.SpawnPosition.rotation);
             _updateManager.AddFixedUpdatable(carPresenter);
             var policeFactory = new PoliceFactory(_policeSo);
-            inputController.OnActionButtonPressed.AddListener((value) =>
+            var hackFactory = new HackFactory(_inputView);
+            carPresenter.OnEnteredVehicle.AddListener(() =>
             {
                 var policePresenter = policeFactory.CreatePoliceUnit(carPresenter.CarView.Rigidbody);
                 _updateManager.AddUpdatable(policePresenter);
+            });
+            inputController.OnActionButtonPressed.AddListener((_) =>
+            {
+                inputController.HidePlayerControllers();
+                var hackPresenter = hackFactory.CreateHackPresenter();
+                inputController.ShowHackControllers();
+                hackPresenter.OnMiniGameFinished.AddListener(() =>
+                {
+                    inputController.HidePlayerControllers();
+                    inputController.HideHackControllers();
+                    playerPresenter.EnterCar(true);
+                });
+                _updateManager.AddUpdatable(hackPresenter);
             });
         }
     }

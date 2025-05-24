@@ -28,8 +28,8 @@ namespace Player
 
         public void Move(Vector2 arg0)
         {
-            _movable.Move(_inputVector);
-            _movable.Rotate(_inputVector);
+            _movable.Move(arg0);
+            _movable.Rotate(arg0);
         }
 
         public void EnterCar(bool value)
