@@ -6,6 +6,7 @@ using _Root.Code.InputFeature;
 using _Root.Code.LevelFeature;
 using _Root.Code.Player;
 using _Root.Code.PoliceFeature;
+using _Root.Code.StartMenuFeature;
 using _Root.Code.UpdateFeature;
 using Cinemachine;
 using Player;
@@ -25,9 +26,10 @@ namespace _Root.Code
         private InputView _inputView;
         private LoseWinView _loseWinView;
         private List<GameObject> _listToDestroy = new List<GameObject>();
+        private StartMenuView _startMenuView;
 
         public InitializeManager(CarSO carSo, UpdateManager updateManager, 
-            CinemachineTargetGroup cinemachineTargetGroup, LevelView levelPrefab, PoliceSO policeSo, PlayerSO playerSo, InputView inputView, LoseWinView loseWinView)
+            CinemachineTargetGroup cinemachineTargetGroup, LevelView levelPrefab, PoliceSO policeSo, PlayerSO playerSo, InputView inputView, LoseWinView loseWinView, StartMenuView startMenuView)
         {
             _carSo = carSo;
             _updateManager = updateManager;
@@ -37,6 +39,7 @@ namespace _Root.Code
             _playerSo = playerSo;
             _inputView = inputView;
             _loseWinView = loseWinView;
+            _startMenuView = startMenuView;
             _loseWinView.TryAgainButton.onClick.AddListener(RestartGame);
         }
 
@@ -47,10 +50,17 @@ namespace _Root.Code
                 Object.Destroy(o);
             }
             _listToDestroy.Clear();
-            Initialize();
+            StartGame();
         }
 
         public void Initialize()
+        {
+            var startMenuFactory = new StartMenuFactory(_startMenuView);
+            var startMenuPresenter = startMenuFactory.CreatePresenter();
+            startMenuPresenter.OnStartClicked.AddListener(StartGame);
+        }
+
+        public void StartGame()
         {
             _updateManager.SetGameStatus(GameStatus.GameInProgress);
             var inputController = new InputController(_inputView);
