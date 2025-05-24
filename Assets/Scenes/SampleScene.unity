@@ -295,6 +295,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 737421717}
     m_Modifications:
+    - target: {fileID: 861950912128435017, guid: 0e144470aa7c8dd4594a1490a1e1892f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 861950912128435017, guid: 0e144470aa7c8dd4594a1490a1e1892f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 861950912128435017, guid: 0e144470aa7c8dd4594a1490a1e1892f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 861950912128435017, guid: 0e144470aa7c8dd4594a1490a1e1892f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3453867649356560578, guid: 0e144470aa7c8dd4594a1490a1e1892f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -378,6 +394,46 @@ PrefabInstance:
     - target: {fileID: 4400185541621084116, guid: 0e144470aa7c8dd4594a1490a1e1892f, type: 3}
       propertyPath: m_Name
       value: StartMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668092083284329979, guid: 0e144470aa7c8dd4594a1490a1e1892f, type: 3}
+      propertyPath: m_text
+      value: "\u0444\u044B\u0432\u0444\u044B\u0432\u0444\u044B\u0432"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668092083284329979, guid: 0e144470aa7c8dd4594a1490a1e1892f, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668092083284329979, guid: 0e144470aa7c8dd4594a1490a1e1892f, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5668092083284329979, guid: 0e144470aa7c8dd4594a1490a1e1892f, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668092083284329979, guid: 0e144470aa7c8dd4594a1490a1e1892f, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668092083284329979, guid: 0e144470aa7c8dd4594a1490a1e1892f, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668092083284329979, guid: 0e144470aa7c8dd4594a1490a1e1892f, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668092083284329979, guid: 0e144470aa7c8dd4594a1490a1e1892f, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668092083284329979, guid: 0e144470aa7c8dd4594a1490a1e1892f, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668092083284329979, guid: 0e144470aa7c8dd4594a1490a1e1892f, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
