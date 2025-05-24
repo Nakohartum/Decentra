@@ -1061,16 +1061,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 173b5499fa0e4c82a2e3b33072b502d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cinemachineTargetGroup: {fileID: 335871733}
-  _carSo: {fileID: 11400000, guid: 94a6e0efdb1f869488621d55fb2ddd82, type: 2}
-  _levelViewPrefab: {fileID: 6292168321018924502, guid: e8b0a857039fb894b99b077f48e67158, type: 3}
-  _playerSo: {fileID: 11400000, guid: 17db59b37fae97e4c9185ceea5c971bf, type: 2}
-  _policeViewPrefab: {fileID: 1024447194505925639, guid: 2d804e8fd5f27ee4b85792b0ac93ef29, type: 3}
-  _policeSo: {fileID: 11400000, guid: dafbda74359134647bc9feef6834078f, type: 2}
-  _inputView: {fileID: 737421718}
-  _startMenuView: {fileID: 182915777}
-  _loseWinView: {fileID: 5219370222044459540}
-  _navigationView: {fileID: 861195386}
+  <CinemachineTargetGroup>k__BackingField: {fileID: 335871733}
+  <CarSo>k__BackingField:
+  - {fileID: 11400000, guid: 94a6e0efdb1f869488621d55fb2ddd82, type: 2}
+  - {fileID: 11400000, guid: 94a6e0efdb1f869488621d55fb2ddd82, type: 2}
+  <LevelViewPrefab>k__BackingField: {fileID: 1591472990267776557, guid: 31a2790fc423b1a4781e3c67ee14a47b, type: 3}
+  <PlayerSo>k__BackingField: {fileID: 11400000, guid: 17db59b37fae97e4c9185ceea5c971bf, type: 2}
+  <PoliceSo>k__BackingField: {fileID: 11400000, guid: dafbda74359134647bc9feef6834078f, type: 2}
+  <InputView>k__BackingField: {fileID: 737421718}
+  <StartMenuView>k__BackingField: {fileID: 182915777}
+  <LoseWinView>k__BackingField: {fileID: 5219370222044459540}
+  <NavigationView>k__BackingField: {fileID: 861195386}
+  <MaxPoliceCount>k__BackingField: 5
+  <PoliceSpawnTimer>k__BackingField: 2
 --- !u!4 &897541195
 Transform:
   m_ObjectHideFlags: 0

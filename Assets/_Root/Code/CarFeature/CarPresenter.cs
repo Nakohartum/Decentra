@@ -54,6 +54,7 @@ namespace _Root.Code.CarFeature
                 _movable.Move(_inputVector);
                 KillSideVelocity();
                 _movable.Rotate(_inputVector);
+                
             }
         }
 
@@ -67,19 +68,27 @@ namespace _Root.Code.CarFeature
 
         public void GetInput(TouchSide value)
         {
+            if (!_isInCar)
+            {
+                return;
+            }
             switch (value)
             {
                 case TouchSide.None:
                     _inputVector = new Vector2(0, 1);
+                    CarView.SetSprite(0);
                     break;
                 case TouchSide.Left:
                     _inputVector = new Vector2(-1, 1);
+                    CarView.SetSprite(1);
                     break;
                 case TouchSide.Right:
                     _inputVector = new Vector2(1, 1);
+                    CarView.SetSprite(2);
                     break;
                 case TouchSide.Center:
                     _inputVector = new Vector2(0, -1);
+                    CarView.SetSprite(0);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(value), value, null);
