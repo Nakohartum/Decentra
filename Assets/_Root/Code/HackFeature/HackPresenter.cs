@@ -2,6 +2,7 @@
 using _Root.Code.UpdateFeature;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace _Root.Code.HackFeature
@@ -11,14 +12,17 @@ namespace _Root.Code.HackFeature
         private readonly HackView _view;
         private readonly HackModel _model;
         private readonly HackFactory _factory;
+        public UnityEvent OnMiniGameFinished;
 
         public HackPresenter(HackView view, HackModel model,  HackFactory factory)
         {
             _view = view;
             _model = model;
             _factory = factory;
-            
+            OnMiniGameFinished = new UnityEvent();
         }
+        
+        
 
         private void OnPlayPressed(bool inZone)
         {
@@ -32,6 +36,8 @@ namespace _Root.Code.HackFeature
                 case HackStatus.Completed:
                     _view.ShowHackComplete();
                     _view.gameObject.SetActive(false);
+                    OnMiniGameFinished.Invoke();
+                    Dispose();
                     break;
                 case HackStatus.Failed:
                     _view.ShowFailure();
@@ -50,20 +56,11 @@ namespace _Root.Code.HackFeature
         {
             _model.Reset();
         }
-        
-        private float NormalizeAngle(float angle)
-        {
-            angle %= 360f;
-            if (angle < 0f)
-                angle += 360f;
-            return angle;
-        }
 
         
         public void OnHackButtonPressed() 
         {
             var anyZone = false;
-            var pointerAngle = NormalizeAngle(_view.pointer.eulerAngles.z);
 
             foreach (var zone in _view.successZones)
             {
@@ -81,7 +78,8 @@ namespace _Root.Code.HackFeature
         
         public void Dispose()
         {
-            
+            OnMiniGameFinished.RemoveAllListeners();
+            _view.HackButton.onClick.RemoveAllListeners();
         }
 
         public void Update(float deltaTime)

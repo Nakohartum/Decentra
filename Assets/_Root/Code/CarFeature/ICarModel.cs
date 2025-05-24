@@ -6,5 +6,6 @@
         float Health { get; }
         float Acceleration { get; }
         float TurnSpeed { get; }
+        float SideFriction { get;}
     }
 }
