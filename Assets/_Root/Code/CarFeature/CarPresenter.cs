@@ -6,13 +6,14 @@ using UnityEngine;
 
 namespace _Root.Code.CarFeature
 {
-    public class CarPresenter 
+    public class CarPresenter : IFixedUpdate
     {
         public CarView CarView { get; private set; }
         private CarModel _carModel;
         private IMovable _movable;
         private bool _isInCar = false;
         private InputController _inputController;
+        private Vector2 _inputVector;
 
         public CarPresenter(CarView carView, CarModel carModel, IMovable movable, InputController inputController)
         {
@@ -27,6 +28,11 @@ namespace _Root.Code.CarFeature
             
         }
 
+        public void FixedUpdate()
+        {
+            Move();
+        }
+
         public void EnterVehicle()
         {
             _isInCar = true;
@@ -34,30 +40,35 @@ namespace _Root.Code.CarFeature
             _inputController.HidePlayerControllers();
         }
 
-        public void Move(TouchSide touchSide)
+        public void Move()
         {
             if (_isInCar)
             {
                 Vector2 vector;
-                switch (touchSide)
-                {
-                    case TouchSide.None:
-                        vector = new Vector2(0, 1);
-                        break;
-                    case TouchSide.Left:
-                        vector = new Vector2(-1, 1);
-                        break;
-                    case TouchSide.Right:
-                        vector = new Vector2(1, 1);
-                        break;
-                    case TouchSide.Center:
-                        vector = new Vector2(0, -1);
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException(nameof(touchSide), touchSide, null);
-                }
-                _movable.Move(vector);
-                _movable.Rotate(vector);
+                
+                _movable.Move(_inputVector);
+                _movable.Rotate(_inputVector);
+            }
+        }
+
+        public void GetInput(TouchSide value)
+        {
+            switch (value)
+            {
+                case TouchSide.None:
+                    _inputVector = new Vector2(0, 1);
+                    break;
+                case TouchSide.Left:
+                    _inputVector = new Vector2(-1, 1);
+                    break;
+                case TouchSide.Right:
+                    _inputVector = new Vector2(1, 1);
+                    break;
+                case TouchSide.Center:
+                    _inputVector = new Vector2(0, -1);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(value), value, null);
             }
         }
     }
