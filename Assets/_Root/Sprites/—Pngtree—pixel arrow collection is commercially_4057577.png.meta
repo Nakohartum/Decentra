@@ -1,0 +1,470 @@
+fileFormatVersion: 2
+guid: 9ee52266a1bdab04e8ca8107e435ca05
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.23956719, y: 0.8634067}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 484, y: 0, z: 0, w: 331}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_0"
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 1067
+        width: 380
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d0bbb5984e85fe45905a6a4cf87979e
+      internalID: 1710871541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_1"
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 1069
+        width: 379
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba490139f3c3b4545b5d62455b39f72c
+      internalID: -273461484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_2"
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 743
+        width: 397
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e4eab05f1b2dd04ab6bba3774464973
+      internalID: 554621917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_3"
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 890
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c57e4dc917ced64d9f4c4d7f804a854
+      internalID: -1515887020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_4"
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 890
+        width: 48
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3684f762dd6d631439bf5cacf8aa6397
+      internalID: -1897152510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_5"
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 751
+        width: 187
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7551cd1de6b30e04699136629d2df919
+      internalID: -835184974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_6"
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 797
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 452e68ac498b9f84ba8f0e4fb95e1ba4
+      internalID: 1277801700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_7"
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 797
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7eaccddaed54344cbc33457e81595ed
+      internalID: -1480588383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_8"
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 398
+        width: 147
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b1d02ad2b08e04f8ecf0a2b6355260
+      internalID: -985729505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_9"
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 588
+        width: 111
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f4abd983f2ab0c4da9790414d0ce512
+      internalID: 280080764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_10"
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 552
+        width: 111
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96e19962c98eaba478eb2400b6fa3d02
+      internalID: 2022406241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_11"
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 495
+        width: 244
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac5875750a4516a4494de47348f1142e
+      internalID: -1863692654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_12"
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 327
+        width: 185
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71b2bd23ac52bf64d96eaa56e4628ea1
+      internalID: 1388751230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_13"
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 157
+        width: 243
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3eb8762d92b6a2488942bccfcd8df9b
+      internalID: -178011837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_14"
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 84
+        width: 146
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e5333ec66beae14e86dbd472b7b859e
+      internalID: -797309533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_15"
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 65
+        width: 185
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc7594801472a184b8432cb9a4da6d86
+      internalID: 1796863725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: -512, y: 350}
+      - {x: -512, y: 685}
+      - {x: -27, y: 685}
+      - {x: -25, y: 350}
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_0": 1710871541
+      "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_1": -273461484
+      "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_10": 2022406241
+      "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_11": -1863692654
+      "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_12": 1388751230
+      "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_13": -178011837
+      "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_14": -797309533
+      "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_15": 1796863725
+      "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_2": 554621917
+      "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_3": -1515887020
+      "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_4": -1897152510
+      "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_5": -835184974
+      "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_6": 1277801700
+      "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_7": -1480588383
+      "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_8": -985729505
+      "\u2014Pngtree\u2014pixel arrow collection is commercially_4057577_9": 280080764
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
