@@ -41,8 +41,10 @@ namespace _Root.Code
             var level = levelFactory.CreateLevel();
             var playerFactory = new PlayerFactory(_playerSo, level.SpawnPosition, inputController);
             var playerPresenter = playerFactory.CreatePlayer();
+            _updateManager.AddFixedUpdatable(playerPresenter);
             var carFactory = new CarFactory(inputController, _cinemachineTargetGroup);
             var carPresenter = carFactory.CreateCar(_carSo, level.SpawnPosition.position, level.SpawnPosition.rotation);
+            _updateManager.AddFixedUpdatable(carPresenter);
             var policeFactory = new PoliceFactory(_policeSo);
             inputController.OnActionButtonPressed.AddListener((value) =>
             {

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac85462ad704ff5997bb1e86dba0efa, type: 3}
   m_Name: PoliceSO
   m_EditorClassIdentifier: 
-  <MaxSpeed>k__BackingField: 20
+  <MaxSpeed>k__BackingField: 2
   <Acceleration>k__BackingField: 3000
   <AvoidForce>k__BackingField: 600
   <AvoidDistance>k__BackingField: 5

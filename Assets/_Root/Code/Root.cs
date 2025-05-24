@@ -34,7 +34,11 @@ namespace _Root.Code
         
         
         private UpdateManager _updateManager;
-        
+
+        private void Awake()
+        {
+            Application.targetFrameRate = 120;
+        }
 
         private void Start()
         {
@@ -48,6 +52,11 @@ namespace _Root.Code
         {
             var deltaTime = Time.deltaTime;
             _updateManager.Update(deltaTime);
+        }
+
+        private void FixedUpdate()
+        {
+            _updateManager.FixedUpdate();
         }
     }
 }
