@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 50
   <Health>k__BackingField: 100
-  <Acceleration>k__BackingField: 5000
+  <Acceleration>k__BackingField: 10000
   <TurnSpeed>k__BackingField: 5000
   <Mass>k__BackingField: 200
   <LinearDrag>k__BackingField: 2
-  <AngularDrag>k__BackingField: 1.5
-  <SideFriction>k__BackingField: 0.2
+  <AngularDrag>k__BackingField: 0.75
+  <SideFriction>k__BackingField: 0.9
   <CarPrefab>k__BackingField: {fileID: 1365419352261345928, guid: c577dadbb61e1dc42b6fdf3caa1f79a1, type: 3}

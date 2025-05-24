@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace _Root.Code.UpdateFeature
 {
@@ -9,6 +10,21 @@ namespace _Root.Code.UpdateFeature
         private List<IUpdatable> _updatables = new List<IUpdatable>();
         private List<IFixedUpdate> _fixedUpdates = new List<IFixedUpdate>();
         private GameStatus _gameStatus;
+        private List<GameObject> _listToDestroy = new List<GameObject>();
+
+        public void AddDestroyable(GameObject obj)
+        {
+            _listToDestroy.Add(obj);
+        }
+
+        public void Destroy()
+        {
+            foreach (var o in _listToDestroy)
+            {
+                Object.Destroy(o);
+            }
+            _listToDestroy.Clear();
+        }
 
         public void AddUpdatable(IUpdatable updatable)
         {

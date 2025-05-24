@@ -15,31 +15,31 @@ namespace _Root.Code
 {
     public class Root : MonoBehaviour
     {
-        [Header("Cinemachine")]
-        [SerializeField] private CinemachineTargetGroup _cinemachineTargetGroup;
-        [Header("Car references")] 
+        [field: Header("Cinemachine")]
+        [field: SerializeField] public CinemachineTargetGroup CinemachineTargetGroup { get; private set; }
+        [field: Header("Car references")] 
         [Tooltip("Cars scriptable objects")]
-        [SerializeField] private CarSO _carSo;
+        [field: SerializeField] public CarSO[] CarSo { get; private set; }
 
-        [Header("Level settings")] 
-        [SerializeField] private LevelView _levelViewPrefab;
+        [field: Header("Level settings")] 
+        [field: SerializeField] public LevelView LevelViewPrefab { get; private set; }
         
-        [Header("Player settings")]
-        [SerializeField] private PlayerSO _playerSo;
+        [field: Header("Player settings")]
+        [field: SerializeField] public PlayerSO PlayerSo { get; private set; }
         
-        [Header("Police settings")]
-        [SerializeField] private PoliceView _policeViewPrefab;
+        [field: Header("Police settings")]
+        [field: SerializeField] public PoliceSO PoliceSo { get; private set; }
+        
+        [field: Header("Game settings")]
+        [field: SerializeField] public InputView InputView { get; private set; }
+        [field: SerializeField] public StartMenuView StartMenuView { get; private set; }
+        [field: SerializeField] public LoseWinView LoseWinView { get; private set; }
+        [field: SerializeField] public NavigationView NavigationView { get; private set; }
+        [field: SerializeField] public float MaxPoliceCount { get; private set; }
+        [field: SerializeField] public int PoliceSpawnTimer { get; private set; }
+        public UpdateManager UpdateManager { get; private set; }
+        
 
-        [SerializeField] private PoliceSO _policeSo;
-        
-        [Header("Game settings")]
-        [SerializeField] private InputView _inputView;
-        [SerializeField] private StartMenuView _startMenuView;
-        [SerializeField] private LoseWinView _loseWinView;
-        [SerializeField] private NavigationView _navigationView;
-        
-        
-        private UpdateManager _updateManager;
 
         private void Awake()
         {
@@ -48,21 +48,20 @@ namespace _Root.Code
 
         private void Start()
         {
-            _updateManager = new UpdateManager();
-            var initializeManager = new InitializeManager(_carSo, _updateManager, _cinemachineTargetGroup, 
-                _levelViewPrefab, _policeSo, _playerSo, _inputView, _loseWinView, _startMenuView, _navigationView);
+            UpdateManager = new UpdateManager();
+            var initializeManager = new InitializeManager(this);
             initializeManager.Initialize();
         }
 
         private void Update()
         {
             var deltaTime = Time.deltaTime;
-            _updateManager.Update(deltaTime);
+            UpdateManager.Update(deltaTime);
         }
 
         private void FixedUpdate()
         {
-            _updateManager.FixedUpdate();
+            UpdateManager.FixedUpdate();
         }
     }
 }

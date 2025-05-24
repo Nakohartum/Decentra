@@ -8,17 +8,18 @@ namespace _Root.Code.CarFeature
     public class CarFactory
     {
         private InputController _inputController;
-        private CinemachineTargetGroup _cinemachineTargetGroup;
+        private Transform[] _carTransforms;
+        private int _currentCarIndex;
 
-        public CarFactory(InputController inputController, CinemachineTargetGroup cinemachineTargetGroup)
+        public CarFactory(InputController inputController, Transform[] carTransforms)
         {
             _inputController = inputController;
-            _cinemachineTargetGroup = cinemachineTargetGroup;
+            _carTransforms = carTransforms;
         }
 
-        public CarPresenter CreateCar(CarSO carSo, Vector3 position, Quaternion rotation)
+        public CarPresenter CreateCar(CarSO carSo)
         {
-            var view = Object.Instantiate(carSo.CarPrefab, position, rotation);
+            var view = Object.Instantiate(carSo.CarPrefab, _carTransforms[_currentCarIndex].position, _carTransforms[_currentCarIndex++].rotation);
             view.Rigidbody.mass = carSo.Mass;
             view.Rigidbody.drag = carSo.LinearDrag;
             view.Rigidbody.angularDrag = carSo.AngularDrag;
@@ -27,7 +28,6 @@ namespace _Root.Code.CarFeature
             var movable = new PhysicsCarMovement(view.Rigidbody, model.Speed, model.Acceleration, model.TurnSpeed);
             var presenter = new CarPresenter(view, model, movable, _inputController);
             _inputController.OnSteeringWheelRotate.AddListener(presenter.GetInput);
-            _cinemachineTargetGroup.AddMember(view.transform, 1f, 10f);
             view.Initialize(presenter);
             return presenter;
         }

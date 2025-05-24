@@ -8,7 +8,18 @@ namespace _Root.Code.CarFeature
     {
         [field: SerializeField] public Rigidbody2D Rigidbody { get; private set; }
         [SerializeField] private Image _healthBar;
+        [SerializeField] private Sprite[] _carSprites;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
         public CarPresenter CarPresenter { get; private set; }
+
+        public void SetSprite(int value)
+        {
+            if (_spriteRenderer.sprite == _carSprites[value])
+            {
+                return;
+            }
+            _spriteRenderer.sprite = _carSprites[value];
+        }
 
         public void Initialize(CarPresenter carPresenter)
         {
