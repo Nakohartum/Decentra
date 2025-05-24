@@ -4,6 +4,7 @@ using _Root.Code.GameLoseWinFeature;
 using _Root.Code.HackFeature;
 using _Root.Code.InputFeature;
 using _Root.Code.LevelFeature;
+using _Root.Code.NavigationFeature;
 using _Root.Code.Player;
 using _Root.Code.PoliceFeature;
 using _Root.Code.StartMenuFeature;
@@ -27,9 +28,10 @@ namespace _Root.Code
         private LoseWinView _loseWinView;
         private List<GameObject> _listToDestroy = new List<GameObject>();
         private StartMenuView _startMenuView;
+        private NavigationView _navigationView;
 
         public InitializeManager(CarSO carSo, UpdateManager updateManager, 
-            CinemachineTargetGroup cinemachineTargetGroup, LevelView levelPrefab, PoliceSO policeSo, PlayerSO playerSo, InputView inputView, LoseWinView loseWinView, StartMenuView startMenuView)
+            CinemachineTargetGroup cinemachineTargetGroup, LevelView levelPrefab, PoliceSO policeSo, PlayerSO playerSo, InputView inputView, LoseWinView loseWinView, StartMenuView startMenuView, NavigationView navigationView)
         {
             _carSo = carSo;
             _updateManager = updateManager;
@@ -40,6 +42,7 @@ namespace _Root.Code
             _inputView = inputView;
             _loseWinView = loseWinView;
             _startMenuView = startMenuView;
+            _navigationView = navigationView;
             _loseWinView.TryAgainButton.onClick.AddListener(RestartGame);
         }
 
@@ -85,11 +88,16 @@ namespace _Root.Code
             _updateManager.AddFixedUpdatable(carPresenter);
             var policeFactory = new PoliceFactory(_policeSo);
             var hackFactory = new HackFactory(_inputView);
+            var navigationPresenter = new NavigationPresenter(_navigationView, level.WinTrigger.transform,
+                carPresenter.CarView.transform);
+            navigationPresenter.DisableArrow();
+            _updateManager.AddUpdatable(navigationPresenter);
             carPresenter.OnEnteredVehicle.AddListener(() =>
             {
                 var policePresenter = policeFactory.CreatePoliceUnit(carPresenter.CarView.Rigidbody);
                 _updateManager.AddUpdatable(policePresenter);
                 _listToDestroy.Add(policePresenter.PoliceView.gameObject);
+                navigationPresenter.EnableArrow();
             });
             carPresenter.OnVehicleDestroyed.AddListener(() =>
             {
@@ -111,6 +119,7 @@ namespace _Root.Code
                 });
                 _updateManager.AddUpdatable(hackPresenter);
             });
+            
             _listToDestroy.Add(playerPresenter.PlayerView.gameObject);
             _listToDestroy.Add(carPresenter.CarView.gameObject);
             _listToDestroy.Add(level.gameObject);
