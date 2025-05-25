@@ -11,8 +11,9 @@ namespace _Root.Code.PoliceFeature
         public float RamDistance { get; }
         public float RamMultiplier { get; }
         public LayerMask ObstacleLayers { get; }
+        public AudioClip PoliceSound { get; }
 
-        public PoliceModel(float maxSpeed, float acceleration, float avoidForce, float avoidDistance, float ramDistance, float ramMultiplier, LayerMask obstacleLayers)
+        public PoliceModel(float maxSpeed, float acceleration, float avoidForce, float avoidDistance, float ramDistance, float ramMultiplier, LayerMask obstacleLayers,  AudioClip policeSound)
         {
             MaxSpeed = maxSpeed;
             Acceleration = acceleration;
@@ -21,6 +22,7 @@ namespace _Root.Code.PoliceFeature
             RamDistance = ramDistance;
             RamMultiplier = ramMultiplier;
             ObstacleLayers = obstacleLayers;
+            PoliceSound = policeSound;
         }
     }
 }

@@ -5,37 +5,42 @@ namespace _Root.Code.CarFeature
 {
     public class CarSoundPlayer
     {
-        private AudioSource AudioSource;
-        public AudioClip AudioClip;
+        private AudioSource _audioSource;
+        public AudioClip EngineSounds;
+        public AudioClip CarOpenSounds;
         public Coroutine SoundRoutine;
 
-        public CarSoundPlayer(AudioSource audioSource, AudioClip audioClip)
+        public CarSoundPlayer(AudioSource audioSource, AudioClip engineSounds, AudioClip carOpenSounds)
         {
-            AudioSource = audioSource;
-            AudioClip = audioClip;
-            AudioSource.clip = AudioClip;
-            AudioSource.loop = true;
+            _audioSource = audioSource;
+            EngineSounds = engineSounds;
+            CarOpenSounds = carOpenSounds;
+            _audioSource.clip = EngineSounds;
+            _audioSource.loop = true;
         }
 
         public void PlayCarSound()
         {
-            AudioSource.Play();
+            var sound = CarOpenSounds;
+            _audioSource.PlayOneShot(sound);
+            _audioSource.clip = EngineSounds;
+            _audioSource.PlayDelayed(CarOpenSounds.length);
         }
 
         public IEnumerator DecreaseVolumeRoutine()
         {
-            for (float i = AudioSource.volume; i > 0.2f; i-=Time.deltaTime)
+            for (float i = _audioSource.volume; i > 0.2f; i-=Time.deltaTime)
             {
-                AudioSource.volume = i;
+                _audioSource.volume = i;
                 yield return null;
             }
         }
         
         public IEnumerator IncreaseSoundRoutine()
         {
-            for (float i = AudioSource.volume; i < 0.4f; i+=Time.deltaTime)
+            for (float i = _audioSource.volume; i < 0.4f; i+=Time.deltaTime)
             {
-                AudioSource.volume = i;
+                _audioSource.volume = i;
                 yield return null;
             }
         }
