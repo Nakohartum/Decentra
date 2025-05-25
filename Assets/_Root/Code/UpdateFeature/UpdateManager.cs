@@ -9,7 +9,7 @@ namespace _Root.Code.UpdateFeature
     {
         private List<IUpdatable> _updatables = new List<IUpdatable>();
         private List<IFixedUpdate> _fixedUpdates = new List<IFixedUpdate>();
-        private GameStatus _gameStatus;
+        public GameStatus GameStatus { get; private set; }
         private List<GameObject> _listToDestroy = new List<GameObject>();
 
         public void AddDestroyable(GameObject obj)
@@ -48,7 +48,7 @@ namespace _Root.Code.UpdateFeature
         
         public void Update(float deltaTime)
         {
-            if (_gameStatus == GameStatus.GameEnded)
+            if (GameStatus == GameStatus.GameEnded)
             {
                 Dispose();
                 return;
@@ -75,7 +75,7 @@ namespace _Root.Code.UpdateFeature
 
         public void FixedUpdate()
         {
-            if (_gameStatus == GameStatus.GameEnded)
+            if (GameStatus == GameStatus.GameEnded)
             {
                 Dispose();
                 return;
@@ -88,7 +88,7 @@ namespace _Root.Code.UpdateFeature
 
         public void SetGameStatus(GameStatus status)
         {
-            _gameStatus = status;
+            GameStatus = status;
         }
     }
 }
