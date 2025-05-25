@@ -46,7 +46,7 @@ namespace Player
 
         public CarView CheckCarInDistance()
         {
-            var hit = Physics2D.RaycastAll(PlayerView.transform.position, PlayerView.transform.up, 1f);
+            var hit = Physics2D.RaycastAll(PlayerView.transform.position, PlayerView.transform.up, 2f);
                 
             if (hit.Length > 0)
             {

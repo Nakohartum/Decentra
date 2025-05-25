@@ -110,6 +110,7 @@ namespace _Root.Code
                 });
                 carPresenter.OnVehicleDestroyed.AddListener(() =>
                 {
+                    _root.CinemachineTargetGroup.RemoveMember(carPresenter.CarView.transform);
                     _root.LoseWinView.gameObject.SetActive(true);
                     _root.LoseWinView.HideWinScreen();
                     _root.LoseWinView.ShowLoseScreen();
