@@ -1390,7 +1390,7 @@ MonoBehaviour:
   <CinemachineTargetGroup>k__BackingField: {fileID: 335871733}
   <CarSo>k__BackingField:
   - {fileID: 11400000, guid: 94a6e0efdb1f869488621d55fb2ddd82, type: 2}
-  - {fileID: 11400000, guid: 94a6e0efdb1f869488621d55fb2ddd82, type: 2}
+  - {fileID: 11400000, guid: 2d56fdf3627781546875c89f526c121a, type: 2}
   <LevelViewPrefab>k__BackingField: {fileID: 1591472990267776557, guid: 31a2790fc423b1a4781e3c67ee14a47b, type: 3}
   <PlayerSo>k__BackingField: {fileID: 11400000, guid: 17db59b37fae97e4c9185ceea5c971bf, type: 2}
   <PoliceSo>k__BackingField: {fileID: 11400000, guid: dafbda74359134647bc9feef6834078f, type: 2}
