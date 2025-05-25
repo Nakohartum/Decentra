@@ -103,7 +103,7 @@ namespace _Root.Code
                 carPresenter.OnEnteredVehicle.AddListener(() =>
                 {
                     _root.CinemachineTargetGroup.RemoveMember(playerPresenter.PlayerView.transform);
-                    _root.CinemachineTargetGroup.AddMember(carPresenter.CarView.transform, 1f, 15f);
+                    _root.CinemachineTargetGroup.AddMember(carPresenter.CarView.transform, 1f, 20f);
                     CreatePolice(policeFactory, carPresenter);
                     navigationPresenter.SetPlayer(carPresenter.CarView.transform);
                     navigationPresenter.EnableArrow();

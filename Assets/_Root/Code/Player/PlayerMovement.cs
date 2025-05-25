@@ -8,7 +8,7 @@ namespace _Root.Code
         private Rigidbody2D _rigidbody;
         private float _speed;
         private Vector2 _inputVector;
-        private float _acceleration = 200f;
+        private float _acceleration = 1000f;
 
         public PlayerMovement(Rigidbody2D rigidbody, float speed)
         {
