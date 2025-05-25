@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac85462ad704ff5997bb1e86dba0efa, type: 3}
   m_Name: PoliceSO
   m_EditorClassIdentifier: 
-  <MaxSpeed>k__BackingField: 4
-  <Acceleration>k__BackingField: 3000
+  <MaxSpeed>k__BackingField: 45
+  <Acceleration>k__BackingField: 30000
   <AvoidForce>k__BackingField: 600
   <AvoidDistance>k__BackingField: 5
   <RamDistance>k__BackingField: 5
@@ -22,3 +22,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   <PolicePrefab>k__BackingField: {fileID: 1024447194505925639, guid: 2d804e8fd5f27ee4b85792b0ac93ef29, type: 3}
+  <PoliceSounds>k__BackingField: {fileID: 8300000, guid: 6b3e15b81e0a53c4d9abb78de1d70033, type: 3}

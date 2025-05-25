@@ -73,6 +73,10 @@ namespace _Root.Code
             
             inputController.OnActionButtonPressed.AddListener((_) =>
             {
+                if (playerPresenter.CheckCarInDistance() == null)
+                {
+                    return;
+                }
                 inputController.HidePlayerControllers();
                 var hackPresenter = hackFactory.CreateHackPresenter();
                 inputController.ShowHackControllers();
