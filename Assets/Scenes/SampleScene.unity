@@ -1629,6 +1629,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 737421717}
     m_Modifications:
+    - target: {fileID: 1034548417462936088, guid: c961ce6703c01604aaf27eadf9e0a4e2, type: 3}
+      propertyPath: m_text
+      value: "<color=\"green>\u041F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u044F\u044E,
+        \u0432\u044B \u0443\u0441\u043F\u0435\u0448\u043D\u043E \u0443\u0435\u0445\u0430\u043B\u0438
+        \u0438 \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u0438 \u043F\u0440\u0438\u0437:\n\u0410\u043A\u0442\u0438\u0432\u0438\u0440\u0443\u0439\u0442\u0435
+        \u0435\u0433\u043E \u0432</color> GrandMobile:\n<color=\"yellow>#eGames</color>"
+      objectReference: {fileID: 0}
     - target: {fileID: 4688493337695621555, guid: c961ce6703c01604aaf27eadf9e0a4e2, type: 3}
       propertyPath: m_Pivot.y
       value: 0

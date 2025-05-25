@@ -56,8 +56,10 @@ namespace _Root.Code
                 _root.LoseWinView.ShowWinScreen();
                 _root.UpdateManager.SetGameStatus(GameStatus.GameEnded);
             });
+            _root.UpdateManager.AddDestroyable(level.gameObject);
             var playerFactory = new PlayerFactory(_root.PlayerSo, level.Spawnpoint.PlayerSpawnPoint, inputController);
             var playerPresenter = playerFactory.CreatePlayer();
+            _root.UpdateManager.AddDestroyable(playerPresenter.PlayerView.gameObject);
             _root.CinemachineTargetGroup.AddMember(playerPresenter.PlayerView.transform, 1f, 10f);
             _root.UpdateManager.AddFixedUpdatable(playerPresenter);
             var carFactory = new CarFactory(inputController, level.Spawnpoint.CarsSpawnPoints);
@@ -92,6 +94,7 @@ namespace _Root.Code
             {
                 var carPresenter = carFactory.CreateCar(_root.CarSo[i]);
                 _root.UpdateManager.AddFixedUpdatable(carPresenter);
+                _root.UpdateManager.AddDestroyable(carPresenter.CarView.gameObject);
                 carPresenter.OnEnteredVehicle.AddListener(() =>
                 {
                     _root.CinemachineTargetGroup.RemoveMember(playerPresenter.PlayerView.transform);
@@ -128,9 +131,16 @@ namespace _Root.Code
                     yield return null;
                 }
 
-                var policePresenter = policeFactory.CreatePoliceUnit(carPresenter.CarView.Rigidbody);
-                _root.UpdateManager.AddDestroyable(policePresenter.PoliceView.gameObject);
-                _root.UpdateManager.AddUpdatable(policePresenter);
+                if (_root.UpdateManager.GameStatus == GameStatus.GameInProgress)
+                {
+                    var policePresenter = policeFactory.CreatePoliceUnit(carPresenter.CarView.Rigidbody);
+                    _root.UpdateManager.AddDestroyable(policePresenter.PoliceView.gameObject);
+                    _root.UpdateManager.AddUpdatable(policePresenter);
+                }
+                else
+                {
+                    break;
+                }
             }
         }
     }
