@@ -36,23 +36,30 @@ namespace Player
         {
             if (value)
             {
-                var hit = Physics2D.RaycastAll(PlayerView.transform.position, PlayerView.transform.up, 1f);
-                
-                if (hit.Length > 0)
-                {
-                    CarView carView;
-                    foreach (var hit2D in hit)
-                    {
-                        if (hit2D.collider.TryGetComponent<CarView>(out carView))
-                        {
-                            carView.CarPresenter.EnterVehicle();
-                            Dispose();
-                            break;
-                        }
-                    }
-                    
-                }
+                var carView = CheckCarInDistance();
+                carView.CarPresenter.EnterVehicle();
+                Dispose();
             }
+        }
+
+        public CarView CheckCarInDistance()
+        {
+            var hit = Physics2D.RaycastAll(PlayerView.transform.position, PlayerView.transform.up, 1f);
+                
+            if (hit.Length > 0)
+            {
+                CarView carView;
+                foreach (var hit2D in hit)
+                {
+                    if (hit2D.collider.TryGetComponent<CarView>(out carView))
+                    {
+                        return carView;
+                    }
+                }
+                    
+            }
+
+            return null;
         }
 
         public void Dispose()
