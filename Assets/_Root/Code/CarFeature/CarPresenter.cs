@@ -48,6 +48,7 @@ namespace _Root.Code.CarFeature
             _isInCar = true;
             CarView.Rigidbody.bodyType = RigidbodyType2D.Dynamic;
             OnEnteredVehicle.Invoke();
+            _soundPlayer.PlayOpenCarSound();
         }
 
         public void Move()
