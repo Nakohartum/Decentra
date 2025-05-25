@@ -13,6 +13,7 @@ namespace _Root.Code.PoliceFeature
         [field: SerializeField] public float RamMultiplier { get;private set; }
         [field: SerializeField] public LayerMask ObstacleLayers { get; private set; }
         [field: SerializeField] public PoliceView PolicePrefab { get; private set; }
+        [field: SerializeField] public AudioClip PoliceSounds { get; private set; }
         
     }
 }
