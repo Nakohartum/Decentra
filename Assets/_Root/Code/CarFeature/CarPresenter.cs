@@ -47,7 +47,6 @@ namespace _Root.Code.CarFeature
         {
             _isInCar = true;
             CarView.Rigidbody.bodyType = RigidbodyType2D.Dynamic;
-            CarView.PlaySound();
             OnEnteredVehicle.Invoke();
         }
 
@@ -57,10 +56,18 @@ namespace _Root.Code.CarFeature
             {
                 if (Mathf.Approximately(_inputVector.y, -1))
                 {
+                    if (!CarView.AudioSource.isPlaying)
+                    {
+                        CarView.PlaySound();
+                    }
                     _soundPlayer.StartDecreasingSound(CarView);
                 }
                 else if (Mathf.Approximately(_inputVector.y, 1))
                 {
+                    if (!CarView.AudioSource.isPlaying)
+                    {
+                        CarView.PlaySound();
+                    }
                     _soundPlayer.StartIncreasingSound(CarView);
                 }
                 _movable.Move(_inputVector);
@@ -103,7 +110,8 @@ namespace _Root.Code.CarFeature
                     CarView.SetSprite(0);
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(value), value, null);
+                    _inputVector = Vector2.zero;
+                    break;
             }
         }
 

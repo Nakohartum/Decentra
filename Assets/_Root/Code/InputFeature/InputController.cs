@@ -41,12 +41,21 @@ namespace _Root.Code.InputFeature
 
         private TouchSide CalculateSide()
         {
+            if (_inputView.ControlsHint.activeSelf && Input.touchCount < 1)
+            {
+                return TouchSide.Pause;
+            }
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && _inputView.ControlsHint.activeSelf)
+            {
+                _inputView.ControlsHint.SetActive(false);
+            }
             if (Input.touchCount == 0)
             {
                 return TouchSide.None;
             }
             int width = Screen.width;
             Touch touch = Input.GetTouch(0);
+            
 
             if (touch.position.x < width * 0.3f)
             {
@@ -83,6 +92,11 @@ namespace _Root.Code.InputFeature
             _inputView.HackView.gameObject.SetActive(false);
             _inputView.HackView.HackButton.gameObject.SetActive(false);
         }
+
+        public void ShowHint()
+        {
+            _inputView.ControlsHint.SetActive(true);
+        }
     }
 
     public enum TouchSide
@@ -91,5 +105,6 @@ namespace _Root.Code.InputFeature
         Left = 1,
         Right = 2,
         Center = 3,
+        Pause = 4,
     }
 }

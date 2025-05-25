@@ -19,7 +19,6 @@ namespace _Root.Code.CarFeature
 
         public void PlayCarSound()
         {
-            Debug.Log(AudioSource.clip);
             AudioSource.Play();
         }
 
