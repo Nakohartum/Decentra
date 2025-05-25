@@ -21,4 +21,5 @@ MonoBehaviour:
   <AngularDrag>k__BackingField: 0.25
   <SideFriction>k__BackingField: 0.9
   <CarPrefab>k__BackingField: {fileID: 1365419352261345928, guid: c577dadbb61e1dc42b6fdf3caa1f79a1, type: 3}
-  <CarSound>k__BackingField: {fileID: 8300000, guid: feaa7402ff3c39145abb95e7201e8b0d, type: 3}
+  <CarEngineSound>k__BackingField: {fileID: 8300000, guid: feaa7402ff3c39145abb95e7201e8b0d, type: 3}
+  <CarOpenSound>k__BackingField: {fileID: 8300000, guid: 01acdeafb43acc3409bc21135326e2da, type: 3}

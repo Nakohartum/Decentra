@@ -19,12 +19,15 @@ namespace _Root.Code.CarFeature
             _audioSource.loop = true;
         }
 
+        public void PlayOpenCarSound()
+        {
+            _audioSource.PlayOneShot(CarOpenSounds);
+        }
+        
         public void PlayCarSound()
         {
-            var sound = CarOpenSounds;
-            _audioSource.PlayOneShot(sound);
             _audioSource.clip = EngineSounds;
-            _audioSource.PlayDelayed(CarOpenSounds.length);
+            _audioSource.Play();
         }
 
         public IEnumerator DecreaseVolumeRoutine()

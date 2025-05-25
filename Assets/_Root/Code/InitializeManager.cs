@@ -81,6 +81,7 @@ namespace _Root.Code
                     inputController.HidePlayerControllers();
                     inputController.HideHackControllers();
                     playerPresenter.EnterCar(true);
+                    inputController.ShowHint();
                 });
                 _root.UpdateManager.AddUpdatable(hackPresenter);
             });
