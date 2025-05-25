@@ -26,7 +26,7 @@ namespace _Root.Code.CarFeature
             _carModel = carModel;
             _movable = movable;
             _inputController = inputController;
-            _soundPlayer = new CarSoundPlayer(CarView.AudioSource, _carModel.CarSound);
+            _soundPlayer = new CarSoundPlayer(CarView.AudioSource, _carModel.CarEngineSound, _carModel.CarOpenSound);
             OnEnteredVehicle = new UnityEvent();
             OnVehicleDestroyed = new UnityEvent();
             CarView.ChangeHealthBar(_carModel.MaxHealth, _carModel.Health);

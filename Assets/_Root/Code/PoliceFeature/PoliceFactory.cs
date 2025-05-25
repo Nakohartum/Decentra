@@ -20,14 +20,17 @@ namespace _Root.Code.PoliceFeature
 
         public PolicePresenter CreatePoliceUnit(Rigidbody2D target)
         {
-            CurrentPoliceCount++;
+            
             var randomPoint = _spawnPositions[UnityEngine.Random.Range(0, _spawnPositions.Length)];
             var view = Object.Instantiate(_policeSO.PolicePrefab, randomPoint.position, quaternion.identity);
             var model = new PoliceModel(_policeSO.MaxSpeed, _policeSO.Acceleration, _policeSO.AvoidForce,
-                _policeSO.AvoidDistance, _policeSO.RamDistance, _policeSO.RamMultiplier, _policeSO.ObstacleLayers);
+                _policeSO.AvoidDistance, _policeSO.RamDistance, _policeSO.RamMultiplier, _policeSO.ObstacleLayers, _policeSO.PoliceSounds);
+            var soundPlayer = new PoliceSoundPlayer(view.AudioSource, _policeSO.PoliceSounds);
             var strategies = CreatePoliceMovementStrategies(view, model, target);
             var movable = new PoliceMovement(strategies, view, model);
-            var presenter = new PolicePresenter(view, model, movable);
+            var presenter = new PolicePresenter(view, model, movable, CurrentPoliceCount > 0?null : soundPlayer);
+            presenter.PlaySound();
+            CurrentPoliceCount++;
             return presenter;
         }
 
