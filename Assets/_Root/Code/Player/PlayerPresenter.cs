@@ -14,6 +14,7 @@ namespace Player
         public PlayerView PlayerView {get; private set;}
         private IMovable _movable;
         private Vector2 _inputVector;
+        private int _isWalkingHash = Animator.StringToHash("IsWalking");
         public PlayerPresenter(PlayerModel playerModel, PlayerView playerView, IMovable movable)
         {
             _playerModel = playerModel;
@@ -28,6 +29,7 @@ namespace Player
 
         public void Move(Vector2 arg0)
         {
+            PlayerView.Animator.SetBool(_isWalkingHash, arg0 != Vector2.zero);
             _movable.Move(arg0);
             _movable.Rotate(arg0);
         }

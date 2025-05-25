@@ -18,7 +18,6 @@ namespace _Root.Code
         
         public void Move(Vector3 direction)
         {
-            
             _rigidbody.AddForce((Vector2)direction * _acceleration);
             if (_rigidbody.velocity.magnitude > _speed)
             {
